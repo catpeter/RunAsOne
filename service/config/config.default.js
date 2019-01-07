@@ -11,7 +11,7 @@ module.exports = appInfo => {
 
   config.mongoose = {
     client: {
-      url: 'mongodb://127.0.0.1/RunAsOne',
+      url: 'mongodb://127.0.0.1:27017/RunAsOne',
       options: {
         auth: {
           authSource: 'admin',
