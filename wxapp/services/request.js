@@ -1,6 +1,6 @@
 const config = require('../config/config.js')
 
-function wxRequest(url, method = 'GET', data) {
+function wxRequest(url, method = 'GET', data, contentType = 'application/json') {
   let promise = new Promise((resolve, reject) => {
     getNetwork().then((err) => {
       //init
@@ -12,7 +12,7 @@ function wxRequest(url, method = 'GET', data) {
         data: getData,
         method: method,
         header: {
-          'content-type': 'application/json'
+          'content-type': contentType
         },
         success: function(res) { //服务器返回数据
           if (parseInt(res.statusCode) === 200) {

@@ -1,4 +1,50 @@
 <!--index.wxml-->
-<view class="container">
-首页
+<view class="page">
+  <!--收缩框-->
+  <view class="search-wrapper">
+    <view class="side-list iconfont icon-list side-list-white" bindtap="open_side_list"></view>
+    <view class="search-button" bindtap="click_search">
+    <view class="flex_row">
+      <view class="iconfont icon-sousuo"></view>
+      <input placeholder='搜索活动'></input>
+       </view>
+    </view>
+  </view>
+
+  <view class="page-bottom">
+    <view class="side-list-wrapper">
+      <view class="list-item" data-list-index="1" bindtap="click_side_item">
+        <text>跑步活动</text>
+      </view>
+      <view class="list-item" data-list-index="2" bindtap="click_side_item">
+        <text>跑步训练</text>
+      </view>
+      <view class="list-item" data-list-index="3" bindtap="click_side_item">
+        <text>娱乐活动</text>
+      </view>
+      <view class="botton-item1" data-list-index="5" bindtap="click_side_item">
+        <text>联系客服</text>
+      </view>
+      <view class="botton-item2" data-list-index="6" bindtap="click_side_item">
+        <text>关于我们</text>
+      </view>
+    </view>
+  </view>
+  <!--活动详情界面-->
+  <view wx:if="{{page_index == 1}}" class="page-top {{open ? 'c-state1' : ''}}">
+    <view wx:if="{{open}}" class="filter"></view>
+    <!--轮播图-->
+    <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
+      <view class="swiper-wrapper">
+        <swiper class="swiper" indicator-dots="true">
+          <block wx:for="{{swiper}}">
+            <swiper-item>
+              <image src="{{item.url}}" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+
+    </scroll-view>
+  </view>
 </view>

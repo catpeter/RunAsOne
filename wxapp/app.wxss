@@ -1,4 +1,8 @@
 /**app.wxss**/
+/* @import 'assets/styles/weui.wxss'; */
+@import 'assets/styles/skyvow.wxss';
+@import 'assets/styles/font.wxss';
+
 .container {
   height: 100%;
   display: flex;
