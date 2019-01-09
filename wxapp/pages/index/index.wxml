@@ -1,8 +1,6 @@
 <!--index.wxml-->
-<view class="page">
-  <!--收缩框-->
   <view class="search-wrapper">
-    <view class="side-list iconfont icon-list side-list-white" bindtap="open_side_list"></view>
+    <view class="side-list iconfont icon-list" bindtap="open_side_list"></view>
     <view class="search-button" bindtap="click_search">
     <view class="flex_row">
       <view class="iconfont icon-sousuo"></view>
@@ -10,8 +8,7 @@
        </view>
     </view>
   </view>
-
-  <view class="page-bottom">
+  <view class="page-bottom" hidden='{{!open}}'>
     <view class="side-list-wrapper">
       <view class="list-item" data-list-index="1" bindtap="click_side_item">
         <text>跑步活动</text>
@@ -30,14 +27,11 @@
       </view>
     </view>
   </view>
-  <!--活动详情界面-->
-  <view wx:if="{{page_index == 1}}" class="page-top {{open ? 'c-state1' : ''}}">
-    <view wx:if="{{open}}" class="filter"></view>
-    <!--轮播图-->
+      <!--轮播图-->
     <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
       <view class="swiper-wrapper">
         <swiper class="swiper" indicator-dots="true">
-          <block wx:for="{{swiper}}">
+          <block wx:for="{{swiper}}" wx:key="index">
             <swiper-item>
               <image src="{{item.url}}" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
             </swiper-item>
@@ -46,5 +40,3 @@
       </view>
 
     </scroll-view>
-  </view>
-</view>

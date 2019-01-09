@@ -1,0 +1,9 @@
+<!--pages/activity/createActivity/index.wxml-->
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="user_info">
+      <image mode="scaleToFill" class="photo_style" catchtap="chooseImageTap" src="{{photo}}" binderror="imageError" data-err-img="userPhoto"></image>
+      <button class="photo_btn" formType="submit" disabled='{{disable}}'>{{buttonName}}</button>
+    </view>
+  </form>
+</view>

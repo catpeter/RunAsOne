@@ -1,8 +1,9 @@
 {
   "pages": [
+    "pages/activity/createActivity/index",
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/user/user"
+    "pages/user/user",
+    "pages/logs/logs"
   ],
   "window": {
     "backgroundTextStyle": "light",

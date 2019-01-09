@@ -30,6 +30,51 @@ function wxRequest(url, method = 'GET', data, contentType = 'application/json') 
   return promise
 }
 
+function wxUploadFile(url, filePath, name, data) {
+  let promise = new Promise((resolve, reject) => {
+    if (!filePath) {
+      reject('图片有误!')
+    }
+    this.getNetwork().then(() => {
+      //init
+      let that = this,
+        formData = data
+      const upload = wx.uploadFile({
+        url: config.baseUrl + url,
+        filePath: filePath,
+        name: name,
+        header: {
+          'content-type': 'multipart/form-data'
+        }, // 设置请求的 header
+        formData: formData, // HTTP 请求中其他额外的 form data
+        success: function(res) {
+          if (parseInt(res.statusCode) == 200 && !res.data.result_code) {
+            resolve(JSON.parse(res.data))
+          } else {
+            reject(res.data)
+          }
+        },
+        fail: function(e) {
+          if (e.errMsg) {
+            if (e.errMsg.indexOf('timeout') != -1) {
+              wx.showToast({
+                title: '请求超时!',
+                icon: 'none',
+                duration: 2000
+              })
+              return
+            }
+          }
+          reject(e)
+        }
+      })
+    }).catch((errMsg) => {
+      reject(errMsg)
+    })
+  })
+  return promise
+}
+
 function getNetwork() {
   let promise = new Promise((resolve, reject) => {
     wx.getNetworkType({
@@ -118,6 +163,8 @@ function handleError(e) {
   }
   return showErr
 }
+
 module.exports = {
-  wxRequest: wxRequest
+  wxRequest: wxRequest,
+  wxUploadFile: wxUploadFile
 }
