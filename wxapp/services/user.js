@@ -2,7 +2,7 @@ const request = require('./request.js')
 const prefix =  'user'
 
 function getUser() {
-  request.wxRequest(prefix)
+  return request.wxRequest(prefix)
 }
 
 module.exports = {

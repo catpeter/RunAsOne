@@ -3,7 +3,7 @@
   <form bindsubmit="formSubmit">
     <view class="user_info">
       <image mode="scaleToFill" class="photo_style" catchtap="chooseImageTap" src="{{photo}}" binderror="imageError" data-err-img="userPhoto"></image>
-      <button class="photo_btn" formType="submit" disabled='{{disable}}'>{{buttonName}}</button>
+      <button class="photo_btn" formType="submit">确定</button>
     </view>
   </form>
 </view>

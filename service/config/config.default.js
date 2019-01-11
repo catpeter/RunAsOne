@@ -11,13 +11,10 @@ module.exports = appInfo => {
 
   config.mongoose = {
     client: {
-      url: 'mongodb://127.0.0.1:27017/RunAsOne',
+      url: 'mongodb://207.246.99.183:27017/RunAsOne',
       options: {
-        auth: {
-          authSource: 'admin',
-        },
         user: 'root',
-        pass: 'root',
+        pass: 'pyw123',
       },
     },
   };

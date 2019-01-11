@@ -35,7 +35,7 @@ function wxUploadFile(url, filePath, name, data) {
     if (!filePath) {
       reject('图片有误!')
     }
-    this.getNetwork().then(() => {
+    getNetwork().then(() => {
       //init
       let that = this,
         formData = data

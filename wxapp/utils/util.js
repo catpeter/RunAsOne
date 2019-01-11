@@ -14,46 +14,33 @@ const formatNumber = n => {
   return n[1] ? n : '0' + n
 }
 
-function chooseImageTap() {
-  let promise = new Promise((resolve, reject) => {
-    wx.showActionSheet({
-      itemList: ['从相册中选择', '拍照'],
-      itemColor: "#f7982a",
-      success: function(res) {
-        if (!res.cancel) {
-          if (res.tapIndex == 0) {
-            resolve(chooseWxImage('album'))
-          } else if (res.tapIndex == 1) {
-            resolve(chooseWxImage('camera'))
-          }
-        }
-      },
-      fail(err) {
-        reject(e)
-      }
-    })
-  })
-  return promise
+// 防触控
+function throttle(fn, gapTime) {
+  if (gapTime == null || gapTime == undefined) {
+    gapTime = 1500
+  }
+
+  let _lastTime = null
+
+  // 返回新的函数
+  return function () {
+    let _nowTime = + new Date()
+    if (_nowTime - _lastTime > gapTime || !_lastTime) {
+      fn.apply(this, arguments)   //将this和参数传给原函数
+      _lastTime = _nowTime
+    }
+  }
 }
 
-function chooseWxImage(type) {
-  let promise = new Promise((resolve, reject) => {
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['original', 'compressed'],
-      sourceType: [type],
-      success: function(res) {
-        resolve(res)
-      },
-      fail(err) {
-        reject(e)
-      }
-    })
-  })
-  return promise
+// 图片错误
+function errImgFun(e, that) {
+  var _errImg = e.target.dataset.errImg
+  var _errObj = {}
+  _errObj[_errImg] = "/assets/images/system/fail.svg"
+  that.setData(_errObj)
 }
 
 module.exports = {
   formatTime: formatTime,
-  chooseImageTap: chooseImageTap
+  errImgFun: errImgFun
 }
