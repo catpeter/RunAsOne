@@ -25,6 +25,10 @@ class activityController extends Controller {
       a: 11,
     };
   }
+  async find() {
+    const { ctx } = this;
+    await ctx.service.activity.find();
+  }
 }
 
 module.exports = activityController;
