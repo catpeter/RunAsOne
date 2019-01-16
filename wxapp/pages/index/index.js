@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const activityService = require('../../services/activity')
 Page({
 
   /**
@@ -67,6 +68,11 @@ Page({
   // 页面初始化函数
   initPage() {
     self = this;
+    let data = {status: 0}
+    activityService.getActivities(data).then((res) => {
+      console.log('initPage')
+      console.log(res)
+    })
   },
   // 请求成功回调函数
   initPage_request_suc: function (res) {

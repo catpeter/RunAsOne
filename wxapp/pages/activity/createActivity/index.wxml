@@ -2,7 +2,14 @@
 <view class="container">
   <form bindsubmit="formSubmit">
     <view class="user_info">
-      <image mode="scaleToFill" class="photo_style" catchtap="chooseImageTap" src="{{photo}}" binderror="imageError" data-err-img="userPhoto"></image>
+      <input name="activityName" value="{{activityName}}" placeholder="请输入活动名称" cursor-spacing='20' />
+      <input name="deadLine" value="{{deadLine}}" placeholder="截止日期" cursor-spacing='20' />
+      <input name="activityType" value="{{activityType}}" placeholder="活动类型" cursor-spacing='20' />
+      <input name="activityDate" value="{{activityDate}}" placeholder="活动时间" cursor-spacing='20' />
+      <!-- <picker mode="date" fields="day" value="{{pickerDateValue}}" bindchange="datePickerChangeEvent">
+          <text>{{year || "--"}} 年 {{month || "--"}} 月</text>
+      </picker> -->
+      <!-- <image mode="scaleToFill" class="photo_style" catchtap="chooseImageTap" src="{{photo}}" binderror="imageError" data-err-img="userPhoto"></image> -->
       <button class="photo_btn" formType="submit">确定</button>
     </view>
   </form>

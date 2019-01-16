@@ -1,6 +1,16 @@
 const config = require('../config/config.js')
+function wxGet(url, data) {
+  return wxRequest(url, data)
+}
+function wxPost(url, data) {
+  return wxRequest(url, data, 'POST', 'application/x-www-form-urlencoded')
 
-function wxRequest(url, method = 'GET', data, contentType = 'application/json') {
+}
+function wxPut(url, data) {
+  return wxRequest(url, data, 'PUT')
+}
+
+function wxRequest(url, data, method = 'GET', contentType = 'application/json') {
   let promise = new Promise((resolve, reject) => {
     getNetwork().then((err) => {
       //init
@@ -17,7 +27,9 @@ function wxRequest(url, method = 'GET', data, contentType = 'application/json') 
         success: function(res) { //服务器返回数据
           if (parseInt(res.statusCode) === 200) {
             resolve(res.data)
-          } else { //返回错误提示信息
+          } else if (parseInt(res.statusCode) === 204) {  //无返回值
+            resolve(res)
+          } else {          //返回错误提示信息
             reject(res.data)
           }
         },
@@ -165,6 +177,8 @@ function handleError(e) {
 }
 
 module.exports = {
-  wxRequest: wxRequest,
+  wxGet: wxGet,
+  wxPost: wxPost,
+  wxPut: wxPut,
   wxUploadFile: wxUploadFile
 }

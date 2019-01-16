@@ -42,9 +42,10 @@ Page({
   },
   // 表单
   formSubmit(e) {
-    // console.log(e)
-    let formData = {name: 'testActivity'}
-    activityService.createActivity(this.data.photo, 'photo', formData).then((res) => {
+    console.log(e.detail.value)
+    let formData = e.detail.value
+    formData['sponsor'] = '5c37633820ae9104f2844935'
+    activityService.changeActivity('5c3e9ba920ae9104f2846961', formData).then((res) => {
       console.log(res)
     })
   }

@@ -25,9 +25,19 @@ class activityController extends Controller {
       a: 11,
     };
   }
+
   async find() {
-    const { ctx } = this;
-    await ctx.service.activity.find();
+    const ctx = this.ctx;
+    await ctx.service.activity.find(ctx.query);
+  }
+  async create() {
+    const ctx = this.ctx;
+    await ctx.service.activity.create(ctx.request.body);
+  }
+
+  async update() {
+    const ctx = this.ctx;
+    await ctx.service.activity.update(ctx.params._id, ctx.request.body);
   }
 }
 
