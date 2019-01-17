@@ -3,7 +3,8 @@
     "pages/activity/createActivity/index",
     "pages/index/index",
     "pages/user/user",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/activity/activityDetail/activityDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

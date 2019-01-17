@@ -9,6 +9,10 @@ module.exports = app => {
     tel: {
       type: Number,
     },
+    type: {
+      type: Number, // 0 super 1 admin 2 ordinary
+      require: true,
+    },
   });
-  return mongoose.model('User', UserSchema);
+  return mongoose.model('User', UserSchema, 'users');
 };

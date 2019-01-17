@@ -2,8 +2,18 @@
 const Service = require('egg').Service;
 const mongoose = require('mongoose');
 class BaseService extends Service {
-  async find(modelName, query, populate = '', sort = { createTime: -1 }) {
+  async find(modelName, query) {
     // 这里需要注意： 只有安装了 mongoose 后， model 才会挂载到 this.ctx 上。
+    let populate = '';
+    let sort = { createTime: -1 };
+    if (query.populate) {
+      populate = query.populate;
+      delete query.populate;
+    }
+    if (query.sort) {
+      sort = query.sort;
+      delete query.sort;
+    }
     return this.ctx.model[modelName + 'Entity'].find(query).populate(populate).sort(sort)
       .exec();
   }
