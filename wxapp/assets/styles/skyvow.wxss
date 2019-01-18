@@ -1,7 +1,23 @@
 /* my */
+
 .flex_row {
   display: flex;
   flex-direction: row; /* 主轴方向 */
   justify-content: center; /*主轴对齐方式 */
   align-items: center; /* 交叉轴上对齐*/
+}
+
+.flex_row_s {
+  display: flex;
+  flex-direction: row; /* 主轴方向 */
+  justify-content: flex-start; /*主轴对齐方式 */
+  align-items: center; /* 交叉轴上对齐*/
+}
+
+.placeholder {
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(142, 142, 142, 1);
+  line-height: 20px;
 }

@@ -1,6 +1,0 @@
-/* pages/activity/createActivity/index.wxss */
-
-.photo_style {
-  width: 200rpx;
-  height: 200rpx;
-}

@@ -38,6 +38,11 @@ module.exports = app => {
       default: 0,
       required: true,
     },
+    number: { // 活动人数
+      type: Number,
+      default: 0,
+      required: true,
+    },
     deleted: {
       type: Boolean, // 删除标识 true：已删除，false：未删除
       default: false,

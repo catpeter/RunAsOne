@@ -16,5 +16,5 @@ module.exports = app => {
   router.put('/api/activity/:_id', controller.activity.update);
   // router.get('/activity/:query', controller.activity.find);
   // router.resources('activity', '/api/activity', controller.activity);
-  // router.post('/activity', controller.activity.index);
+  router.post('/activity', controller.activity.index);
 };

@@ -48,5 +48,8 @@ Page({
     activityService.changeActivity('5c3e9ba920ae9104f2846961', formData).then((res) => {
       console.log(res)
     })
+    //     activityService.upload(this.data.photo, 'photo',formData).then((res) => {
+    //   console.log(res)
+    // })
   }
 })
