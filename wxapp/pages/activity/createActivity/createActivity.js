@@ -1,13 +1,44 @@
 // pages/activity/createActivity/index.js'
+const enums = require('../../../utils/enum.js')
 const utils = require('../../../utils/util.js')
 const activityService = require('../../../services/activity')
+const moment = require('../../../assets/plugins/moment.min.js')
+const pickerFile = require('../../../component/picker_datetime/picker_datetime.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    photo: '/assets/images/system/default.svg'
+    photo: '/assets/images/system/default.svg',
+    type: enums.TYPE,
+    typeIndex: 0,
+    pickerPreFlag: true,
+    activityDate: '',
+    deadLine: '',
+    bk: ''
+  },
+  onLoad() {
+    let that = this
+    // WxNotificationCenter.addNotification("inviteAddress", that.getAddress, that)
+    // this.initValidate()
+    this.datetimePicker = new pickerFile.pickerDatetime({
+      page: this,
+      animation: 'slide',
+      duration: 300
+    })
+  },
+  showDeadLine() {
+    this.setData({
+      bk: this.data.deadLine
+    })
+    this.datetimePicker.setPicker('deadLine')
+  },
+  showActivityDate() {
+    this.setData({
+      bk: this.data.activityDate
+    })
+    this.datetimePicker.setPicker('activityDate')
   },
   // 图片
   chooseImageTap() {
@@ -38,6 +69,11 @@ Page({
           photo: res.tempFilePaths[0]
         })
       },
+    })
+  },
+  typeChange(e) {
+    this.setData({
+      typeIndex: e.detail.value
     })
   },
   // 表单

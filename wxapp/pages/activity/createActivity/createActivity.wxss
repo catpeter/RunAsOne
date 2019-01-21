@@ -15,7 +15,7 @@ page {
   font-weight: 400;
   color: rgba(201, 201, 201, 1);
   line-height: 47px;
-  margin: 0rpx 30rpx 30rpx 30rpx;
+  margin: 0rpx 0rpx 30rpx 46rpx;
   border-radius: 2px 0px 2px 2px;
   border: 1px solid  rgba(142,142,142,1);
   width: 660rpx;

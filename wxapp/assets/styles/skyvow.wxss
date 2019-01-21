@@ -1,5 +1,55 @@
 /* my */
 
+/* pickerdate*/
+
+.pick_datetime {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: white;
+}
+
+.pick_datetime_tool {
+  display: flex;
+  justify-content: space-between;
+  height: 92rpx;
+  line-height: 92rpx;
+  border-top: 4rpx solid #eee;
+  border-bottom: 4rpx solid #eee;
+  padding: 0 20rpx;
+}
+
+.pick_datetime_ok {
+  /* font-weight: bold; */
+  color: #1aad19;
+}
+
+.pick_datetime_clear {
+  color: #888;
+}
+
+.pick_datetime picker-view {
+  font-size: 34rpx;
+}
+
+.pick_datetime_column {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.shade {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+  z-index: 999;
+  position: absolute;
+}
+
 .flex_row {
   display: flex;
   flex-direction: row; /* 主轴方向 */
@@ -20,4 +70,18 @@
   font-weight: 400;
   color: rgba(142, 142, 142, 1);
   line-height: 20px;
+}
+
+.form_btn {
+  width: 632rpx;
+  height: 96rpx;
+  background:rgba(232,168,35,1);
+  font-size: 18px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 1);
+  line-height: 96rpx;
+  text-align: center;
+  border-radius: 54rpx;
+  margin: 0rpx 58rpx 0rpx 60rpx;
 }
