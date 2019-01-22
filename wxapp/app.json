@@ -1,11 +1,17 @@
 {
   "pages": [
     "pages/activity/createActivity/createActivity",
+    "pages/location/location",
     "pages/index/index",
     "pages/user/user",
     "pages/logs/logs",
     "pages/activity/activityDetail/activityDetail"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序选择地址"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1C1B20",

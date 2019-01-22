@@ -39,7 +39,7 @@
         <text>|</text>
       </view>
       <view class="info_content" bindtap="setAddress">
-        <text class="info_input" wx:if="{{address.value}}"></text>
+        <text class="info_input" wx:if="{{address.address}}"></text>
         <text class="default" wx:else>请选择地址</text>
         <!-- <text class="weui-select weui-select_in-select-after"></text> -->
       </view>

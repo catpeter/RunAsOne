@@ -87,5 +87,11 @@ Page({
     //     activityService.upload(this.data.photo, 'photo',formData).then((res) => {
     //   console.log(res)
     // })
-  }
+  },
+  setAddress: function () {
+    let address = JSON.stringify(this.data.address)
+    wx.navigateTo({
+      url: '/pages/location/location'
+    })
+  },
 })
