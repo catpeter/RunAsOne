@@ -1,11 +1,11 @@
 {
   "pages": [
+    "pages/main/main",
     "pages/activity/createActivity/createActivity",
-    "pages/location/location",
     "pages/index/index",
     "pages/user/user",
-    "pages/logs/logs",
-    "pages/activity/activityDetail/activityDetail"
+    "pages/activity/activityDetail/activityDetail",
+    "pages/logs/logs"
   ],
   "permission": {
     "scope.userLocation": {
@@ -16,14 +16,14 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1C1B20",
     "navigationBarTitleText": "上海全明星跑团",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "selectedColor": "#0DA4BD",
     "backgroundColor": "#fff",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/main/main",
         "iconPath": "assets/images/system/home.png",
         "selectedIconPath": "assets/images/system/home_selected.png",
         "text": "首页"

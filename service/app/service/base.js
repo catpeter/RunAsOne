@@ -7,6 +7,7 @@ class BaseService extends Service {
     let populate = '';
     let sort = { createTime: -1 };
     if (query.populate) {
+      console.log(query.populate);
       populate = query.populate;
       delete query.populate;
     }

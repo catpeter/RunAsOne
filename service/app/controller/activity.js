@@ -8,6 +8,9 @@ class ActivityController extends Controller {
   }
   async create() {
     const ctx = this.ctx;
+    if (ctx.request.body.address) {
+      ctx.request.body.address = JSON.parse(ctx.request.body.address);
+    }
     ctx.body = await ctx.service.base.add(prefix, ctx.request.body);
   }
   async update() {
