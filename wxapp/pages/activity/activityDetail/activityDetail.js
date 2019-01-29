@@ -1,19 +1,25 @@
 // pages/activity/activityDetail/activityDetail.js
+const activityService = require('../../../services/activity')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    activityDetail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    activityService.changeActivity('5c3e9ba920ae9104f2846961', formData).then((res) => {
+    console.log(options.id)
+    let that = this
+    activityService.getActivityById('5c495e4ee5ec4300dcd72be5').then((res) => {
       console.log(res)
+      that.setData({
+        activityDetail: res
+      })
     })
   },
 

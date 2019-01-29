@@ -5,7 +5,7 @@
   "private": true,
   "dependencies": {
     "egg": "^2.2.1",
-    "egg-scripts": "^2.5.0",
+    "egg-scripts": "^2.11.0",
     "fdfs": "^1.0.4"
   },
   "devDependencies": {

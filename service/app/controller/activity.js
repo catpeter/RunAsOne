@@ -18,10 +18,9 @@ class ActivityController extends Controller {
     ctx.body = await ctx.service.base.update(prefix, ctx.params, ctx.request.body);
   }
   async show() {
-    const {
-      ctx,
-    } = this;
-    await ctx.service.base.findOne(prefix, ctx.params._id);
+    const ctx = this.ctx;
+    const populate = 'sponsor';
+    ctx.body = await ctx.service.base.findOne(prefix, ctx.params.id, populate);
   }
 }
 module.exports = ActivityController;

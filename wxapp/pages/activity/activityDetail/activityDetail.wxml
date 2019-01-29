@@ -1,2 +1,17 @@
 <!--pages/activity/activityDetail/activityDetail.wxml-->
-<text>pages/activity/activityDetail/activityDetail.wxml</text>
+<view>
+  <text>截止时间：{{activityDetail.deadLine}}</text>
+</view>
+
+<view>
+  <text>报名人数：{{activityDetail.appNum}}/{{activityDetail.number}}</text>
+</view>
+<view>
+  <text>活动时间：{{activityDetail.activityDate}}</text>
+</view>
+<view>
+  <text>活动地点：{{activityDetail.address.name}}</text>
+</view>
+<view>
+  <text>发起人：{{activityDetail.sponsor.name}}</text>
+</view>

@@ -30,6 +30,10 @@ class activityController extends Controller {
     const ctx = this.ctx;
     await ctx.service.activity.find(ctx.query);
   }
+  async show() {
+    const ctx = this.ctx;
+    await ctx.service.activity.show(ctx.params.id);
+  }
   async create() {
     const ctx = this.ctx;
     console.log(ctx.request.body);

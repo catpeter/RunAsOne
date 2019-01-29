@@ -1,28 +1,30 @@
 /* pages/main/main.wxss */
-page{
+
+page {
   width: 100%;
   height: 100%;
   /* overflow: hidden; */
   color: white;
-  background: rgba(61,68,78,1);
+  background: rgba(61, 68, 78, 1);
 }
 
 .search-wrapper {
   padding: 10px 0;
   width: 100%;
-  text-align:center;
+  text-align: center;
 }
 
-.side-list{
+.side-list {
   display: inline-block;
   margin: 0 5vw;
   height: 30px;
   width: 30px;
   font-size: 25px;
-  color: rgba(0,0,0,1);
-  font-family:PingFangSC-Regular;
-  transition: color .5s;
+  color: rgba(0, 0, 0, 1);
+  font-family: PingFangSC-Regular;
+  transition: color 0.5s;
 }
+
 .search-button {
   display: inline-block;
   margin: 0 auto;
@@ -36,7 +38,7 @@ page{
   vertical-align: top;
 }
 
-.page-bottom{
+.page-bottom {
   position: fixed;
   width: 100%;
   height: 100%;
@@ -50,23 +52,25 @@ page{
   width: 40%;
   height: 90%;
   overflow: hidden;
-  background-color: rgba(248, 248, 248,1);
+  background-color: rgba(248, 248, 248, 1);
   padding-top: 60px;
-  color: rgba(0,0,0,1);
-  font-family:PingFangSC-Regular;
+  color: rgba(0, 0, 0, 1);
+  font-family: PingFangSC-Regular;
 }
 
-.list-item{
+.list-item {
   margin-top: 5vw;
   margin-left: 5vw;
 }
-.botton-item1{
+
+.botton-item1 {
   position: absolute;
   bottom: 5vw;
   left: 5vw;
   font-size: 4vw;
 }
-.botton-item2{
+
+.botton-item2 {
   position: absolute;
   bottom: 15vw;
   left: 5vw;
@@ -89,8 +93,8 @@ page{
 }
 
 .B {
-  color: rgba(13, 167, 180, 1);
-  background: rgba(13, 164, 189, 0.2);
+  color: rgba(94, 183, 76, 1);
+  background: rgba(225, 248, 215, 1);
 }
 
 .C {

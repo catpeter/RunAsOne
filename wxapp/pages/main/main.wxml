@@ -1,11 +1,12 @@
 <!--pages/main/main.wxml-->
-<view class="search-wrapper">
+<view class="search-wrapper flex_row">
   <view class="search-button" bindtap="click_search">
     <view class="flex_row">
       <view class="iconfont icon-sousuo"></view>
       <input placeholder='搜索活动'></input>
-    </view>
+    </view>        
   </view>
+  <button bindtap="createActivity" style="width:50px;height:30px;font-size:14px;line-height:30px;padding:0;">新建</button>
 </view>
 <!-- <view class="page-bottom" hidden='{{!open}}'>
   <view class="side-list-wrapper">
@@ -30,10 +31,10 @@
   <text style="padding-left:20rpx;">近期活动</text>
   <view style='padding-bottom: 32rpx;'>
     <view wx:if="{{activityList.length > 0}}">
-      <scroll-view scroll-y="true" wx:if="{{activityList.length > 0}}" style="padding-bottom: 144rpx;">
+      <scroll-view scroll-y="true" wx:if="{{activityList.length > 0}}">
         <view class="scroll-view-item1" wx:key="index" wx:for="{{activityList}}" wx:for-item="activity">
-        <view style='background:rgba(232,168,35,1);margin:20rpx 40rpx;padding:8rpx 20rpx;border-radius: 20rpx'>
-          <view class="flex_row_s">
+        <view style='background:rgba(232,168,35,1);margin:20rpx 40rpx;padding:8rpx 20rpx;border-radius: 20rpx' bindtap='getActivityDetail' data-activity-id = "{{activity._id}}">
+          <view>
             <text>{{activity.activityName}}</text>
             <text class="activity_type {{TypecColor[activity.activityType]}}">{{type[activity.activityType]}}</text>
           </view>

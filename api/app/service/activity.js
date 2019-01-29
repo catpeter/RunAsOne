@@ -9,7 +9,11 @@ class ActivityService extends Service {
   async find(query) {
     const ctx = this.ctx;
     const result = await Httpclient.get(ctx, serviceHost + prefix, query);
-    console.log(result);
+    ctx.body = result.data;
+  }
+  async show(id) {
+    const ctx = this.ctx;
+    const result = await Httpclient.get(ctx, serviceHost + prefix + '/' + id);
     ctx.body = result.data;
   }
   async create(body) {

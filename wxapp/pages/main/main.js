@@ -22,6 +22,16 @@ Page({
     TypecColor: ['A', 'B', 'C', 'D', 'E', 'F']
   },
 
+  createActivity() {
+    wx.navigateTo({
+      url: '/pages/activity/createActivity/createActivity'
+    })
+  },
+  getActivityDetail (e) {
+    wx.navigateTo({
+      url: '/pages/activity/activityDetail/activityDetail?id=' + e.currentTarget.dataset.activityId
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -74,8 +84,6 @@ Page({
     self = this;
     let data = { status: 0 }
     activityService.getActivities(data).then((res) => {
-      console.log('initPage')
-      console.log(res)
       self.setData({
         activityList: res
       })
@@ -83,7 +91,6 @@ Page({
   },
   // 请求成功回调函数
   initPage_request_suc: function (res) {
-    console.log(res);
     self.setData({
       activity_data: res.data.activity,
       swiper: res.data.swiper
