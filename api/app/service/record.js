@@ -2,10 +2,10 @@
 const {
   serviceHost,
 } = require('../config/basic.config');
-const prefix = 'service/activity';
+const prefix = 'service/record';
 const Httpclient = require('../util/request');
 const Service = require('egg').Service;
-class ActivityService extends Service {
+class RecordService extends Service {
   async find(query) {
     const ctx = this.ctx;
     const result = await Httpclient.get(ctx, serviceHost + prefix, query);
@@ -28,4 +28,4 @@ class ActivityService extends Service {
   }
 }
 
-module.exports = ActivityService;
+module.exports = RecordService;

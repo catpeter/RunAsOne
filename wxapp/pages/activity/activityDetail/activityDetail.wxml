@@ -15,3 +15,6 @@
 <view>
   <text>发起人：{{activityDetail.sponsor.name}}</text>
 </view>
+<view>
+  <button class="form_btn" bindtap='participate'>报名</button>
+</view>

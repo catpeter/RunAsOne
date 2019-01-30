@@ -36,7 +36,6 @@ class activityController extends Controller {
   }
   async create() {
     const ctx = this.ctx;
-    console.log(ctx.request.body);
     await ctx.service.activity.create(ctx.request.body);
   }
 
