@@ -1,1 +1,22 @@
 /**index.wxss**/
+
+page {
+  height: 100%;
+}
+
+.info_button {
+  color: white;
+  border: 0;
+  font-size: 18px;
+  outline: none;
+  padding: 5px 10px;
+  background: rgba(240, 180, 40, 1);
+  border-radius: 4px;
+  /* 设置文字阴影 */
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.3);
+  /* 设置盒子阴影 */
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.2), 0 3px 20px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  z-index: 2;
+
+}
