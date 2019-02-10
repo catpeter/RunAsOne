@@ -1,4 +1,5 @@
-//index.js
+ //index.js
+const userService = require('../../services/user')
 //获取应用实例
 const app = getApp()
 Page({
@@ -18,14 +19,55 @@ Page({
   onLoad(options) {
     let that = this
     wx.createSelectorQuery().select('#index').boundingClientRect(function (rect) {
-      console.log(rect)
-      // 使页面滚动到底部
       that.setData({
         height: rect.height,
         top: rect.height * 0.45,
         left: rect.width * 0.33,
       })
     }).exec()
+    wx.checkSession({
+      success(res) {
+        // session_key 未过期，并且在本生命周期一直有效
+        console.log(res)
+      },
+      fail() {
+        // session_key 已经失效，需要重新执行登录流程
+        wx.login({
+          success: res => {
+            // 发送 res.code 到后台换取 openId, sessionKey, unionId
+            if (res.code) {
+              userService.wxlogin(res.code).then((res) => {
+                console.log(res)
+                // that.setData({
+                //   activityDetail: res
+                // })
+              })
+              // 获取openId并缓存
+              // wx.setStorageSync(key, data)
+            } else {
+              console.log('获取用户登录态失败！' + res.errMsg)
+              wx.showToast({
+                title: '获取用户登录态失败,请稍后再试!',
+                icon: 'none'
+              })
+              // wx.redirectTo({
+              //   url: '../userInfo/login/login'
+              // })
+            }
+          },
+          fail: err => {
+            wx.showToast({
+              title: '获取用户登录态失败,请稍后再试!',
+              icon: 'none'
+            })
+            wx.redirectTo({
+              url: '../userInfo/login/login'
+            })
+          }
+        })   
+      }
+    })
+ 
   },
   getUserInfo: function (e) {
     if (e.detail.userInfo) {
@@ -34,6 +76,27 @@ Page({
       this.setData({
         userInfo: e.detail.userInfo,
         hasUserInfo: true
+      })
+      let formData = {
+        encryptedData: e.detail.encryptedData,
+        iv: e.detail.iv,
+      }
+      wx.login({
+        success(res) {
+          console.log(res)
+          if (res.code) {
+            // 发起网络请求
+            formData['code'] = res.code
+            userService.createUser(formData).then((res) => {
+              console.log(res)
+              // wx.switchTab({
+              //   url: '../../main/main',
+              // })
+            })
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
+        }
       })
     }
   }

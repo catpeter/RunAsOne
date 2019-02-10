@@ -1,10 +1,30 @@
 const request = require('./request.js')
-const prefix =  'user'
+const prefix = 'user'
 
-function getUser() {
-  return request.wxGet(prefix)
+function getUsers(data) {
+  return request.wxGet(prefix, data)
+}
+
+function getUserById(id) {
+  return request.wxGet(prefix + '/' + id)
+}
+
+function createUser(data) {
+  return request.wxPost(prefix, data)
+}
+
+function changeUser(_id, data) {
+  return request.wxPut(prefix + `/${_id}`, data)
+}
+
+function wxlogin(jscode) {
+  return request.wxGet(`${jscode}`)
 }
 
 module.exports = {
-  getUser: getUser
+  wxlogin: wxlogin,
+  createUser: createUser,
+  changeUser: changeUser,
+  getUsers: getUsers,
+  getUserById: getUserById
 }

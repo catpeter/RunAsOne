@@ -13,7 +13,9 @@ class recordController extends Controller {
 
   async create() {
     const ctx = this.ctx;
-    ctx.service.activity.update(ctx.request.body.activity, { appNum: ctx.request.body.appNum });
+    ctx.service.activity.update(ctx.request.body.activity, {
+      appNum: ctx.request.body.appNum,
+    });
     delete ctx.request.body.appNum;
     await ctx.service.record.create(ctx.request.body);
   }

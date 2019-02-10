@@ -12,8 +12,6 @@ class UserService extends Service {
       method: 'GET',
       dataType: 'json',
     });
-    console.log('result');
-    console.log(result);
     ctx.body = result.data;
   }
 }
