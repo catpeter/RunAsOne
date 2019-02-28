@@ -29,6 +29,10 @@ Page({
       success(res) {
         // session_key 未过期，并且在本生命周期一直有效
         console.log(res)
+        app.globalData.personId = '5c774796dac5441fe437c6fc'
+        wx.switchTab({
+          url: '../main/main',
+        })
       },
       fail() {
         // session_key 已经失效，需要重新执行登录流程
@@ -71,7 +75,6 @@ Page({
   },
   getUserInfo: function (e) {
     if (e.detail.userInfo) {
-      console.log(e)
       app.globalData.userInfo = e.detail.userInfo
       this.setData({
         userInfo: e.detail.userInfo,
@@ -89,9 +92,11 @@ Page({
             formData['code'] = res.code
             userService.createUser(formData).then((res) => {
               console.log(res)
-              // wx.switchTab({
-              //   url: '../../main/main',
-              // })
+              if (res._id) {
+                wx.switchTab({
+                  url: '../main/main',
+                })
+              }
             })
           } else {
             console.log('登录失败！' + res.errMsg)

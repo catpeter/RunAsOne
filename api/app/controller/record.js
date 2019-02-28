@@ -2,9 +2,9 @@
 const Controller = require('egg').Controller;
 
 class recordController extends Controller {
-  async find() {
+  async index() {
     const ctx = this.ctx;
-    await ctx.service.record.find(ctx.query);
+    await ctx.service.record.index(ctx.query);
   }
   async show() {
     const ctx = this.ctx;
@@ -22,7 +22,14 @@ class recordController extends Controller {
 
   async update() {
     const ctx = this.ctx;
-    await ctx.service.record.update(ctx.params._id, ctx.request.body);
+    await ctx.service.record.update(ctx.params.id, ctx.request.body);
+  }
+  async destroy() {
+    const ctx = this.ctx;
+    ctx.service.activity.update(ctx.request.body.activity, {
+      appNum: ctx.request.body.appNum,
+    });
+    await ctx.service.record.destroy(ctx.params.id, ctx.request.body);
   }
 }
 

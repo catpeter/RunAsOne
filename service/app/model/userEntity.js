@@ -3,14 +3,37 @@ module.exports = app => {
   const mongoose = app.mongoose;
   const Schema = mongoose.Schema;
   const UserSchema = new Schema({
-    name: {
+    nickName: {
+      type: String,
+    },
+    openId: {
+      type: String,
+      require: true,
+    },
+    city: {
+      type: String,
+    },
+    province: {
+      type: String,
+    },
+    country: {
+      type: String,
+    },
+    language: {
+      type: String,
+    },
+    avatarUrl: {
       type: String,
     },
     tel: {
       type: Number,
     },
+    gender: {
+      type: Number,
+    },
     type: {
       type: Number, // 0 super 1 admin 2 ordinary
+      default: 2,
       require: true,
     },
     deleted: {

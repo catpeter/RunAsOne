@@ -16,7 +16,7 @@ Page({
     })
   },
   onLoad: function() {
-    userService.getUser()
+    // userService.getUser()
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

@@ -1,33 +1,91 @@
 // pages/activity/activityDetail/activityDetail.js
 const activityService = require('../../../services/activity')
 const recordService = require('../../../services/record')
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    activityDetail: {}
+    activityDetail: {},
+    signedUp: false,
+    recordId: null,
+    showSign: false,
+    key: 'B2ZBZ-2BKWJ-USMFU-FRYMM-Y7IRF-ABBPQ',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    console.log(options.id)
     let that = this
-    activityService.getActivityById('5c495e4ee5ec4300dcd72be5').then((res) => {
-      console.log(res)
+    activityService.getActivityById(options.id).then((res) => {
       that.setData({
-        activityDetail: res
+        activityDetail: res,
+        showSign: res.appNum < res.number ? true : false
+      })
+      this.setData({
+        markers: [{
+          id: 1,
+          latitude: res.address.latitude,
+          longitude: res.address.longitude,
+          // iconPath: '/assets/images/record/location.png',
+          callout: { //    气泡
+            content: res.address.name, //    标题
+            color: '#FFFFFF', //    字体颜色
+            fontSize: '14', //    字体大小
+            bgColor: "#E8A823", //    背景颜色
+            borderRadius: '5', //    边框圆角
+            padding: '6', //    内边距
+            display: 'ALWAYS' //    气泡显示方式 'BYCLICK':点击显示; 'ALWAYS':常显
+          }
+        }]
+      })
+    })
+    let data = {
+      applicant: app.globalData.personId,
+      activity: options.id,
+      deleted: false
+    }
+    recordService.getRecords(data).then((res) => {
+      that.setData({
+        signedUp: res.length && res.length > 0,
+        recordId: res.length && res.length > 0 ? res[0]._id : null
       })
     })
   },
   participate() {
-    console.log(12321)
-    let formData = { applicant: '5c513aca20ae9104f28653e9', activity: this.data.activityDetail._id, appNum: this.data.activityDetail.appNum + 1}
-    recordService.createRecord(formData).then((res) => {
-      console.log(res)
-    })
+    if (this.data.signedUp) {
+      let formData = {
+        activity: this.data.activityDetail._id,
+        appNum: this.data.activityDetail.appNum - 1
+      }
+      recordService.destoryedRecord(this.data.recordId, formData).then((res) => {
+        console.log(res)
+      })
+    } else {
+      let formData = {
+        applicant: app.globalData.personId,
+        activity: this.data.activityDetail._id,
+        appNum: this.data.activityDetail.appNum + 1
+      }
+      recordService.createRecord(formData).then((res) => {
+        console.log(res)
+      })
+    }
   },
+  checkMap: function(e) {
+    let that = this
+    wx.openLocation({
+      latitude: that.data.activityDetail.address.latitude,
+      longitude: that.data.activityDetail.address.longitude,
+      scale: 28,
+      name: that.data.activityDetail.address.name,
+      address: that.data.activityDetail.address.value,
+      // success: res => {
+      //   console.log(res)
+      // }
+    })
+  }
 })

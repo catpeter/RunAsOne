@@ -18,7 +18,7 @@ function changeUser(_id, data) {
 }
 
 function wxlogin(jscode) {
-  return request.wxGet(`${jscode}`)
+  return request.wxGet('index' + `/${jscode}`)
 }
 
 module.exports = {

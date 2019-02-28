@@ -3,3 +3,16 @@ page {
   background: linear-gradient(180deg, rgba(61, 68, 78, 1) 0%, rgba(21, 31, 43, 1) 100%);
   color:white;
 }
+
+.infoBody {
+  margin: 20rpx 0rpx 40rpx 20rpx;
+}
+
+.mapView {
+  padding: 26rpx 36rpx 30rpx 34rpx;
+}
+
+.map {
+  width: 680rpx;
+  height: 286rpx;
+}

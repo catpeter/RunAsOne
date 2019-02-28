@@ -6,7 +6,7 @@ const prefix = 'service/record';
 const Httpclient = require('../util/request');
 const Service = require('egg').Service;
 class RecordService extends Service {
-  async find(query) {
+  async index(query) {
     const ctx = this.ctx;
     const result = await Httpclient.get(ctx, serviceHost + prefix, query);
     ctx.body = result.data;
@@ -24,6 +24,11 @@ class RecordService extends Service {
   async update(_id, body) {
     const ctx = this.ctx;
     const result = await Httpclient.put(ctx, serviceHost + prefix + `/${_id}`, body);
+    ctx.body = result.data;
+  }
+  async destroy(_id) {
+    const ctx = this.ctx;
+    const result = await Httpclient.del(ctx, serviceHost + prefix + `/${_id}`);
     ctx.body = result.data;
   }
 }

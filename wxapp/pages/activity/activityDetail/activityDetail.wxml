@@ -1,8 +1,8 @@
 <!--pages/activity/activityDetail/activityDetail.wxml-->
+<view class="infoBody">
 <view>
   <text>截止时间：{{activityDetail.deadLine}}</text>
 </view>
-
 <view>
   <text>报名人数：{{activityDetail.appNum}}/{{activityDetail.number}}</text>
 </view>
@@ -10,11 +10,15 @@
   <text>活动时间：{{activityDetail.activityDate}}</text>
 </view>
 <view>
-  <text>活动地点：{{activityDetail.address.name}}</text>
+  <text>活动地点：{{activityDetail.address.address}}</text>
+</view>
+<view class="mapView">
+  <map id="myMap" class="map" longitude="{{activityDetail.address.longitude}}" latitude="{{activityDetail.address.latitude}}" scale='20' subkey="{{key}}" markers="{{markers}}" bindtap="checkMap"></map>
 </view>
 <view>
-  <text>发起人：{{activityDetail.sponsor.name}}</text>
+  <text>发起人：{{activityDetail.sponsor.nickName}}</text>
+</view>
 </view>
 <view>
-  <button class="form_btn" bindtap='participate'>报名</button>
+  <button class="form_btn" bindtap='participate' wx:if="{{showSign || !signedUp}}">{{signedUp ? '取消报名':'报名'}}</button>
 </view>

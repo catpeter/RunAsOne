@@ -12,10 +12,14 @@ exports.post = async (ctx, url, data) => {
   });
   return result;
 };
-exports.del = async (ctx, url) => {
+exports.del = async (ctx, url, data) => {
   const result = await ctx.curl(url, {
     // 必须指定 method
     method: 'DELETE',
+    // 通过 contentType 告诉 httpclient 以 JSON 格式发送
+    contentType: 'json',
+    data,
+    // 明确告诉 httpclient 以 JSON 格式处理响应 body
     dataType: 'json',
   });
   return result;

@@ -68,7 +68,6 @@ var pickerDatetime = function(obj) {
 pickerDatetime.prototype.setPicker = function(pickerName) {
   var _this = this;
   if (this.page.data[pickerName] == undefined || this.page.data[pickerName] == '') {
-    console.log('setPicker')
     //未有原先值，不处理
     var date = new Date();
     var pickerPreYear = date.getFullYear();

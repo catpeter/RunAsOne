@@ -5,6 +5,7 @@ const utils = require('../../../utils/util.js')
 const activityService = require('../../../services/activity')
 const moment = require('../../../assets/plugins/moment.min.js')
 const pickerFile = require('../../../component/picker_datetime/picker_datetime.js')
+const app = getApp()
 Page({
 
   /**
@@ -55,9 +56,10 @@ Page({
   // 表单
   formSubmit(e) {
     let formData = this.checkForm(e.detail.value)
+    formData.sponsor = app.globalData.personId
     if (formData) {
       activityService.createActivity(formData).then((res) => {
-        console.log(res)
+        app.globalData.reLoadMain = true
         wx.switchTab({
           url: '../../main/main',
         })

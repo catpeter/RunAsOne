@@ -9,6 +9,9 @@ function wxPost(url, data) {
 function wxPut(url, data) {
   return wxRequest(url, data, 'PUT')
 }
+function wxDelete(url, data) {
+  return wxRequest(url, data, 'DELETE')
+}
 
 function wxRequest(url, data, method = 'GET', contentType = 'application/json') {
   let promise = new Promise((resolve, reject) => {
@@ -180,5 +183,6 @@ module.exports = {
   wxGet: wxGet,
   wxPost: wxPost,
   wxPut: wxPut,
-  wxUploadFile: wxUploadFile
+  wxUploadFile: wxUploadFile,
+  wxDelete: wxDelete,
 }

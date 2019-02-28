@@ -1,7 +1,7 @@
 const request = require('./request.js')
 const prefix = 'record'
 
-function getRecord(data) {
+function getRecords(data) {
   return request.wxGet(prefix, data)
 }
 
@@ -21,10 +21,15 @@ function changeRecord(_id, data) {
   return request.wxPut(prefix + `/${_id}`, data)
 }
 
+function destoryedRecord(_id, data) {
+  return request.wxDelete(prefix + `/${_id}`, data)
+}
+
 module.exports = {
   createRecord: createRecord,
   changeRecord: changeRecord,
-  getRecord: getRecord,
+  getRecords: getRecords,
   upload: upload,
+  destoryedRecord: destoryedRecord,
   getRecordById: getRecordById
 }

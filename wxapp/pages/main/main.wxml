@@ -28,7 +28,7 @@
   </view>
 </view> -->
 <view>
-  <text style="padding-left:20rpx;">近期活动</text>
+  <text wx:if="{{activityList.length > 0}}" style="padding-left:20rpx;">近期活动</text>
   <view style='padding-bottom: 32rpx;'>
     <view wx:if="{{activityList.length > 0}}">
       <scroll-view scroll-y="true" wx:if="{{activityList.length > 0}}">

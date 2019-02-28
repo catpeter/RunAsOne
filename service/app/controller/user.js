@@ -5,10 +5,12 @@ const prefix = 'User';
 class UserController extends Controller {
   async info() {
     const { ctx } = this;
-    // console.log(ctx);
-    // const userId = ctx.params.id;
     const userInfo = await ctx.service.base.find(prefix);
     ctx.body = userInfo;
+  }
+  async create() {
+    const ctx = this.ctx;
+    ctx.body = await ctx.service.base.add(prefix, ctx.request.body);
   }
 }
 module.exports = UserController;

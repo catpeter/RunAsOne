@@ -14,6 +14,12 @@ class RecordController extends Controller {
     const ctx = this.ctx;
     ctx.body = await ctx.service.base.update(prefix, ctx.params, ctx.request.body);
   }
+  async destroy() {
+    const ctx = this.ctx;
+    ctx.body = await ctx.service.base.update(prefix, ctx.params, {
+      deleted: true,
+    });
+  }
   async show() {
     const {
       ctx,

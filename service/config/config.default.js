@@ -11,9 +11,9 @@ module.exports = appInfo => {
 
   config.mongoose = {
     client: {
-      url: 'mongodb://207.246.99.183:27017/RunAsOne',
+      url: 'mongodb://47.94.172.19:27017/RunAsOne',
       options: {
-        user: 'root',
+        user: 'pyw',
         pass: 'pyw123',
       },
     },
