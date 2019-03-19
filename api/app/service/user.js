@@ -8,7 +8,6 @@ const Service = require('egg').Service;
 class UserService extends Service {
   async find() {
     const ctx = this.ctx;
-
     const result = await ctx.curl(serviceHost + 'user', {
       // 必须指定 method
       method: 'GET',
@@ -19,6 +18,11 @@ class UserService extends Service {
   async create(body) {
     const ctx = this.ctx;
     const result = await Httpclient.post(ctx, serviceHost + prefix, body);
+    ctx.body = result.data;
+  }
+  async update(_id, body) {
+    const ctx = this.ctx;
+    const result = await Httpclient.put(ctx, serviceHost + prefix + `/${_id}`, body);
     ctx.body = result.data;
   }
 }

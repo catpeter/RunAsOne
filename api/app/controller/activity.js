@@ -6,7 +6,7 @@ const pump = require('mz-modules/pump');
 const Controller = require('egg').Controller;
 
 class activityController extends Controller {
-  async index() {
+  async test() {
     const stream = await this.ctx.getFileStream();
     const filename = encodeURIComponent(stream.filename) + path.extname(stream.filename).toLowerCase();
     const target = path.join(this.config.baseDir, 'app/public', filename);
@@ -26,9 +26,9 @@ class activityController extends Controller {
     };
   }
 
-  async find() {
+  async index() {
     const ctx = this.ctx;
-    await ctx.service.activity.find(ctx.query);
+    await ctx.service.activity.index(ctx.query);
   }
   async show() {
     const ctx = this.ctx;

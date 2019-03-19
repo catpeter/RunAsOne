@@ -6,7 +6,7 @@ const prefix = 'service/activity';
 const Httpclient = require('../util/request');
 const Service = require('egg').Service;
 class ActivityService extends Service {
-  async find(query) {
+  async index(query) {
     const ctx = this.ctx;
     const result = await Httpclient.get(ctx, serviceHost + prefix, query);
     ctx.body = result.data;
