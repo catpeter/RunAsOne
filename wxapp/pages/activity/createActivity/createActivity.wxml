@@ -8,7 +8,7 @@
         <text>|</text>
       </view>
       <view class="info_content">
-        <input name="activityName" value="{{activityName}}" class="info_input" placeholder="请输入活动名称" cursor-spacing='25' maxlength="11" placeholder-class="placeholder" bindblur="setTel" />
+        <input name="activityName" value="{{activityName}}" class="info_input" placeholder="请输入活动名称" cursor-spacing='25' maxlength="11" placeholder-class="placeholder" />
       </view>
     </view>
     <view class="info_body flex_row_s">
@@ -24,7 +24,7 @@
     </view>
     <view class="info_body flex_row_s">
       <view class="info_width">
-        <text class="info_title"><text class="type-selected">*</text>截止时间</text>
+        <text class="info_title"><text class="type-selected">*</text>报名截止</text>
         <text>|</text>
       </view>
       <view bindtap="showDeadLine" class="info_content flex_row_c">
@@ -51,7 +51,7 @@
         <text>|</text>
       </view>
       <view class="info_content">
-        <slider bindchange="sliderChange" step="10" selected-color="#E8A823" block-size="13" show-value="true" max="200" />
+        <input type="Number" name="number" value="{{number}}" class="info_input" placeholder="请输入人数" cursor-spacing='25' placeholder-class="placeholder" />
       </view>
     </view>
     <view class="info_body flex_row_s">

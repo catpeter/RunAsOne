@@ -20,5 +20,5 @@
 </view>
 </view>
 <view>
-  <button class="form_btn" bindtap='participate' wx:if="{{showSign || !signedUp}}">{{signedUp ? '取消报名':'报名'}}</button>
+  <button class="form_btn" bindtap='participate' wx:if="{{showSign || !signedUp}}">{{signedUp ? '已报名':'报名'}}</button>
 </view>

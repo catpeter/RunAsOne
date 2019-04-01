@@ -48,11 +48,6 @@ Page({
       typeIndex: e.detail.value
     })
   },
-  sliderChange(e) {
-    this.setData({
-      number: e.detail.value
-    })
-  },
   // 表单
   formSubmit(e) {
     let formData = this.checkForm(e.detail.value)
