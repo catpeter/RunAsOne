@@ -1,10 +1,11 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/activity/activityDetail/activityDetail",
     "pages/main/main",
-    "pages/activity/createActivity/createActivity",
+    "pages/index/index",
     "pages/user/user",
+    "pages/activity/activityDetail/activityDetail",
+    "pages/activity/createActivity/createActivity",
+
     "pages/logs/logs"
   ],
   "permission": {

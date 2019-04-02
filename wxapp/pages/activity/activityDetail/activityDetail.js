@@ -49,9 +49,10 @@ Page({
       deleted: false
     }
     recordService.getRecords(data).then((res) => {
+      console.log(res)
       that.setData({
-        signedUp: res.length && res.length > 0,
-        recordId: res.length && res.length > 0 ? res[0]._id : null
+        signedUp: res && res.length && res.length > 0,
+        recordId: res && res.length && res.length > 0 ? res[0]._id : null
       })
     })
   },

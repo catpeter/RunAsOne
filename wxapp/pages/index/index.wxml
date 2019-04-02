@@ -1,5 +1,5 @@
 <!--index.wxml-->
 <view id="index" style="height:100%;">
   <image src="/assets/images/logo.svg" style="height:{{height}}px;width:100%;" mode="aspectFill"></image>
-  <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="info_button" style='top:{{top}}px;left:{{left}}px;'>开始跑步之旅</button>
+  <!-- <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="info_button" style='top:{{top}}px;left:{{left}}px;'>开始跑步之旅</button> -->
 </view>

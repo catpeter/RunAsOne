@@ -1,6 +1,8 @@
 <!--pages/user.wxml-->
 <view class="container">
   <view class="userinfo">
+  <open-data type="userAvatarUrl" class="userinfo-image" mode="cover"></open-data>
+  <open-data type="userNickName"></open-data>
   </view>
 </view>
 

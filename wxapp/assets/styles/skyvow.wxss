@@ -176,3 +176,9 @@
   line-height: 20px;
 }
 
+
+.hidden {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

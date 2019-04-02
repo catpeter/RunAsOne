@@ -16,10 +16,10 @@ Page({
     swiper: '',
     tag_select: 0,
     open: false,
-
+    statusOptions: enums.STATUS,
+    statusColor: enums.STATUSCOLOR,
     activityList: [],
-    type: enums.TYPE,
-    TypecColor: ['A', 'B', 'C', 'D', 'E', 'F']
+    typeOptions: enums.TYPE
   },
 
   createActivity() {

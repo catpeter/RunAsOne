@@ -1,12 +1,12 @@
 <!--pages/main/main.wxml-->
 <view class="search-wrapper flex_row">
+  <button bindtap="createActivity" style="width:50px;height:30px;font-size:14px;line-height:30px;padding:0;">新建</button>
   <view class="search-button" bindtap="click_search">
     <view class="flex_row">
       <view class="iconfont icon-sousuo"></view>
       <input placeholder='搜索活动'></input>
     </view>        
   </view>
-  <button bindtap="createActivity" style="width:50px;height:30px;font-size:14px;line-height:30px;padding:0;">新建</button>
 </view>
 <!-- <view class="page-bottom" hidden='{{!open}}'>
   <view class="side-list-wrapper">
@@ -33,14 +33,22 @@
     <view wx:if="{{activityList.length > 0}}">
       <scroll-view scroll-y="true" wx:if="{{activityList.length > 0}}">
         <view class="scroll-view-item1" wx:key="index" wx:for="{{activityList}}" wx:for-item="activity">
-        <view style='background:rgba(232,168,35,1);margin:20rpx 40rpx;padding:8rpx 20rpx;border-radius: 20rpx' bindtap='getActivityDetail' data-activity-id = "{{activity._id}}">
-          <view>
-            <text>{{activity.activityName}}</text>
-            <text class="activity_type {{TypecColor[activity.activityType]}}">{{type[activity.activityType]}}</text>
+          <view class='list flex_row_s' bindtap='getActivityDetail' data-activity-id="{{activity._id}}">
+            <view>
+              <image src="/assets/images/test.jpg" style="width:150rpx;height:150rpx;padding-right:10px;"></image>
+            </view>
+            <view>
+              <view style='font-size:18px;font-weight:600;'>
+                <text>{{activity.activityName}}</text>
+                <text style="padding-left:10px;">{{typeOptions[activity.activityType]}}</text>
+              </view>
+              <view class='flex_row_s'>
+              <text style='color:grey;font-size:14px;'>{{activity.activityDate}}</text>
+              <text style='padding-left:10px;color:grey;font-size:14px;width:70px;' class="hidden">{{activity.address.name}}</text>
+                </view>
+              <text style='color:grey;font-size:14px;' class="status_type {{statusColor[activity.status]}}">{{statusOptions[activity.status]}}</text>
+            </view>
           </view>
-           <text>活动时间：{{activity.activityDate}}
-          </text>
-           </view>
         </view>
       </scroll-view>
     </view>

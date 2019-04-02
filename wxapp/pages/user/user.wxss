@@ -19,3 +19,13 @@
 .usermotto {
   margin-top: 200px;
 }
+
+.userinfo-image {
+  margin-bottom: 16rpx;
+  width: 200rpx;
+  height: 200rpx;
+  margin: 0 auto;
+  border-radius: 50%;
+  display: flex;
+  overflow: hidden;
+}

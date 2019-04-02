@@ -4,6 +4,7 @@
   "description": "",
   "private": true,
   "dependencies": {
+    "baidu-aip-sdk": "^2.3.9",
     "egg": "^2.2.1",
     "egg-scripts": "^2.11.0",
     "fdfs": "^1.0.4"
