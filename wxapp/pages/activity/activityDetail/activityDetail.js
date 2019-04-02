@@ -57,14 +57,24 @@ Page({
     })
   },
   participate() {
+    let that = this
     if (this.data.signedUp) {
-      let formData = {
-        activity: this.data.activityDetail._id,
-        appNum: this.data.activityDetail.appNum - 1
-      }
-      recordService.destoryedRecord(this.data.recordId, formData).then((res) => {
-        console.log(res)
-      })
+      // let formData = {
+      //   activity: this.data.activityDetail._id,
+      //   appNum: this.data.activityDetail.appNum - 1
+      // }
+      // recordService.destoryedRecord(this.data.recordId, formData).then((res) => {
+      //   console.log(res)
+      //   let activityDetail = that.data.activityDetail
+      //   activityDetail.appNum = formData.appNum
+      //   console.log(activityDetail)
+      //   if(res.ok) {
+      //     that.setData({
+      //       signedUp: false,
+      //       activityDetail: activityDetail
+      //     })
+      //   }
+      // })
     } else {
       let formData = {
         applicant: app.globalData.personId,
@@ -73,6 +83,17 @@ Page({
       }
       recordService.createRecord(formData).then((res) => {
         console.log(res)
+        let activityDetail = that.data.activityDetail
+        activityDetail.appNum = formData.appNum
+        if (res._id) {
+          that.setData({
+            signedUp: true,
+            activityDetail: activityDetail
+          })
+          wx.showToast({
+            title: '报名成功！',
+          })
+        }
       })
     }
   },
