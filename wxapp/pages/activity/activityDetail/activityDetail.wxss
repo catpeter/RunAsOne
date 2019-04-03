@@ -1,18 +1,87 @@
 /* pages/activity/activityDetail/activityDetail.wxss */
+
 page {
-  background: linear-gradient(180deg, rgba(61, 68, 78, 1) 0%, rgba(21, 31, 43, 1) 100%);
-  color:white;
+  /* background: linear-gradient(180deg, rgba(61, 68, 78, 1) 0%, rgba(21, 31, 43, 1) 100%); */
+  color: black;
 }
 
 .infoBody {
-  margin: 20rpx 0rpx 40rpx 20rpx;
+  margin: 52rpx 0rpx 40rpx 0rpx;
 }
 
-.mapView {
-  padding: 26rpx 36rpx 30rpx 34rpx;
+.act_image {
+  width: 100%;
+  height: 318rpx;
 }
 
-.map {
-  width: 680rpx;
-  height: 286rpx;
+.act_name {
+  text-align: center;
+  font-size: 24px;
+  font-family: PingFangSC-Medium;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  margin-bottom: 14rpx;
+}
+
+.act_subtitle {
+  text-align: center;
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(130, 130, 130, 1);
+  line-height: 40rpx;
+  margin-bottom: 39rpx;
+}
+
+.act_area {
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 106rpx;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.act_icon_area {
+  width: 30rpx;
+  height: 40rpx;
+  margin: 0rpx 34rpx 0rpx 46rpx;
+}
+
+.act_icon_time {
+  width: 34rpx;
+  height: 40rpx;
+  margin: 0rpx 34rpx 0rpx 42rpx;
+}
+.center {
+  vertical-align:middle;
+}
+
+.act_time {
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 1);
+  line-height: 106rpx;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.act_info {
+  text-align: center;
+  font-size: 16px;
+  font-family: PingFangSC-Medium;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 1);
+  line-height: 46rpx;
+  margin-top: 46rpx;
+}
+
+.act_detail {
+  font-size: 14px;
+  font-family: PingFangSC-Regular;
+  font-weight: 400;
+  color: rgba(130, 130, 130, 1);
+  line-height: 44rpx;
+  margin: 39rpx 42rpx 34rpx 42rpx;
 }

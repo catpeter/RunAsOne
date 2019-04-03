@@ -88,17 +88,17 @@
 }
 
 .form_btn {
-  width: 632rpx;
-  height: 96rpx;
-  background:rgba(232,168,35,1);
-  font-size: 18px;
-  font-family: PingFangSC-Regular;
-  font-weight: 400;
-  color: rgba(255, 255, 255, 1);
-  line-height: 96rpx;
+  width: 668rpx;
+  height: 88rpx;
+  background: rgba(254, 222, 46, 1);
+  border-radius: 10rpx;
   text-align: center;
-  border-radius: 54rpx;
-  margin: 0rpx 58rpx 0rpx 60rpx;
+  font-size: 16px;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 1);
+  line-height: 88rpx;
+  margin-bottom: 70rpx; 
 }
 
 .info_body {
@@ -109,7 +109,7 @@
   line-height: 47px;
   margin: 0rpx 0rpx 30rpx 46rpx;
   border-radius: 2px 0px 2px 2px;
-  border: 1px solid  rgba(142,142,142,1);
+  border: 1px solid rgba(142, 142, 142, 1);
   width: 660rpx;
 }
 
@@ -122,7 +122,7 @@
   font-size: 16px;
   font-family: PingFangSC-Regular;
   font-weight: 400;
-  color: rgba(201,201,201,1);
+  color: rgba(201, 201, 201, 1);
   line-height: 44rpx;
 }
 
@@ -175,7 +175,6 @@
   color: rgba(142, 142, 142, 1);
   line-height: 20px;
 }
-
 
 .hidden {
   overflow: hidden;

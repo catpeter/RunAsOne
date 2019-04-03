@@ -1,17 +1,27 @@
 <!--pages/activity/activityDetail/activityDetail.wxml-->
+<image src="{{activityDetail.image ? activityDetail.image : '/assets/images/activity/default.jpg'}}" mode="aspectFill" class="act_image" />
 <view class="infoBody">
-<view>
-  <text>截止时间：{{activityDetail.deadLine}}</text>
+  <view class="act_name">
+    <text>{{activityDetail.activityName}}</text>
+  </view>
+  <view class="act_subtitle">
+    <text>{{activityDetail.subtitle}}</text>
+  </view>
+  <view class="act_area">
+    <image class="act_icon_area center" src="/assets/images/activity/areaIcon.svg"></image>
+    <text class="center">地点：{{activityDetail.address.address}}</text>
+  </view>
+  <view class="act_time">
+    <image class="act_icon_time center" src="/assets/images/activity/timeIcon.svg"></image>
+    <text class="act_time_info center">时间：{{activityDetail.activityDate}}</text>
+  </view>
+  <view class="act_info">
+    <text>活动介绍</text>
+    <view class="act_detail">{{activityDetail.detail}}</view>
+  </view>
 </view>
-<view>
-  <text>报名人数：{{activityDetail.appNum}}/{{activityDetail.number}}</text>
-</view>
-<view>
-  <text>活动时间：{{activityDetail.activityDate}}</text>
-</view>
-<view>
-  <text>活动地点：{{activityDetail.address.address}}</text>
-</view>
+<button class="form_btn" bindtap='participate' >马上报名</button>
+<!--
 <view class="mapView">
   <map id="myMap" class="map" longitude="{{activityDetail.address.longitude}}" latitude="{{activityDetail.address.latitude}}" scale='20' subkey="{{key}}" markers="{{markers}}" bindtap="checkMap"></map>
 </view>
@@ -21,4 +31,4 @@
 </view>
 <view>
   <button class="form_btn" bindtap='participate' wx:if="{{showSign || !signedUp}}">{{signedUp ? '已报名':'报名'}}</button>
-</view>
+</view> -->

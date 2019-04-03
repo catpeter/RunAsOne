@@ -5,7 +5,6 @@
     "pages/user/user",
     "pages/activity/activityDetail/activityDetail",
     "pages/activity/createActivity/createActivity",
-
     "pages/logs/logs"
   ],
   "permission": {
@@ -15,27 +14,9 @@
   },
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#1C1B20",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "上海全明星跑团",
-    "navigationBarTextStyle": "white"
-  },
-  "tabBar": {
-    "selectedColor": "#0DA4BD",
-    "backgroundColor": "#fff",
-    "list": [
-      {
-        "pagePath": "pages/main/main",
-        "iconPath": "assets/images/system/home.png",
-        "selectedIconPath": "assets/images/system/home_selected.png",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/user/user",
-        "iconPath": "assets/images/system/me.png",
-        "selectedIconPath": "assets/images/system/me_selected.png",
-        "text": "我的"
-      }
-    ]
+    "navigationBarTextStyle": "black"
   },
   "networkTimeout": {
     "request": 20000,

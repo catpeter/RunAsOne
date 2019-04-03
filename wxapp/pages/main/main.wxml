@@ -1,71 +1,34 @@
 <!--pages/main/main.wxml-->
-<view class="search-wrapper flex_row">
-  <button bindtap="createActivity" style="width:50px;height:30px;font-size:14px;line-height:30px;padding:0;">新建</button>
-  <view class="search-button" bindtap="click_search">
-    <view class="flex_row">
-      <view class="iconfont icon-sousuo"></view>
-      <input placeholder='搜索活动'></input>
-    </view>        
-  </view>
+<!--轮播图-->
+<scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
+  <swiper class="swiper" indicator-dots="true" style='height:423rpx'>
+    <block wx:for="{{swiper}}" wx:key="index">
+      <swiper-item>
+        <image src="{{item.url}}" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
+      </swiper-item>
+    </block>
+  </swiper>
+</scroll-view>
+<view class='topTabSwiper'>
+  <view wx:for="{{tabOptions}}" wx:for-item="tab" wx:key="index" class='tab  {{currentData == index ? "tabBorer" : ""}}' bindtap='checkCurrent' data-current="{{index}}">{{tab}}</view>
 </view>
-<!-- <view class="page-bottom" hidden='{{!open}}'>
-  <view class="side-list-wrapper">
-    <view class="list-item" data-list-index="1" bindtap="click_side_item">
-      <text>跑步活动</text>
-    </view>
-    <view class="list-item" data-list-index="2" bindtap="click_side_item">
-      <text>跑步训练</text>
-    </view>
-    <view class="list-item" data-list-index="3" bindtap="click_side_item">
-      <text>娱乐活动</text>
-    </view>
-    <view class="botton-item1" data-list-index="5" bindtap="click_side_item">
-      <text>联系客服</text>
-    </view>
-    <view class="botton-item2" data-list-index="6" bindtap="click_side_item">
-      <text>关于我们</text>
-    </view>
-  </view>
-</view> -->
-<view>
-  <text wx:if="{{activityList.length > 0}}" style="padding-left:20rpx;">近期活动</text>
-  <view style='padding-bottom: 32rpx;'>
-    <view wx:if="{{activityList.length > 0}}">
+<swiper current="{{currentData}}" class='swiper' style="height:600px;" duration="300" bindchange="bindchange">
+  <view wx:for="{{tabOptions}}" wx:key="index">
+    <swiper-item>
       <scroll-view scroll-y="true" wx:if="{{activityList.length > 0}}">
-        <view class="scroll-view-item1" wx:key="index" wx:for="{{activityList}}" wx:for-item="activity">
+        <view wx:key="index" wx:for="{{activityList}}" wx:for-item="activity">
           <view class='list flex_row_s' bindtap='getActivityDetail' data-activity-id="{{activity._id}}">
             <view>
-              <image src="/assets/images/test.jpg" style="width:150rpx;height:150rpx;padding-right:10px;"></image>
-            </view>
-            <view>
-              <view style='font-size:18px;font-weight:600;'>
-                <text>{{activity.activityName}}</text>
-                <text style="padding-left:10px;">{{typeOptions[activity.activityType]}}</text>
+              <text class="activity_name">{{activity.activityName}}</text>
+              <view class='flex_row_s activity_date'>
+                <text>{{activity.activityDate}}</text>
               </view>
-              <view class='flex_row_s'>
-              <text style='color:grey;font-size:14px;'>{{activity.activityDate}}</text>
-              <text style='padding-left:10px;color:grey;font-size:14px;width:70px;' class="hidden">{{activity.address.name}}</text>
-                </view>
-              <text style='color:grey;font-size:14px;' class="status_type {{statusColor[activity.status]}}">{{statusOptions[activity.status]}}</text>
+              <text class="activity_status {{activity.status === 0 ? 'start': '' }}">{{statusOptions[activity.status]}}</text>
             </view>
           </view>
         </view>
       </scroll-view>
-    </view>
-    <view wx:else class="no_data_main">
-      <view style="text-align: center;">近期无活动</view>
-    </view>
+      <text wx:else>暂无活动</text>
+    </swiper-item>
   </view>
-</view>
-<!--轮播图-->
-<!-- <scroll-view scroll-y="true" bindscroll="bindscroll" bindscrolltoupper="reach_top">
-  <view class="swiper-wrapper">
-    <swiper class="swiper" indicator-dots="true">
-      <block wx:for="{{swiper}}" wx:key="index">
-        <swiper-item>
-          <image src="{{item.url}}" mode="aspectFill" class="slide-image" data-actid="{{item.actid}}" bindtap="click_activity" />
-        </swiper-item>
-      </block>
-    </swiper>
-  </view>
-</scroll-view>
+</swiper>

@@ -9,7 +9,7 @@ Page({
    */
   data: {
     activityDetail: {},
-    signedUp: false,
+    // signedUp: false,
     recordId: null,
     showSign: false,
     key: 'B2ZBZ-2BKWJ-USMFU-FRYMM-Y7IRF-ABBPQ',
@@ -25,7 +25,7 @@ Page({
         activityDetail: res,
         showSign: res.appNum < res.number ? true : false
       })
-      this.setData({
+      that.setData({
         markers: [{
           id: 1,
           latitude: res.address.latitude,
@@ -41,18 +41,6 @@ Page({
             display: 'ALWAYS' //    气泡显示方式 'BYCLICK':点击显示; 'ALWAYS':常显
           }
         }]
-      })
-    })
-    let data = {
-      applicant: app.globalData.personId,
-      activity: options.id,
-      deleted: false
-    }
-    recordService.getRecords(data).then((res) => {
-      console.log(res)
-      that.setData({
-        signedUp: res && res.length && res.length > 0,
-        recordId: res && res.length && res.length > 0 ? res[0]._id : null
       })
     })
   },
