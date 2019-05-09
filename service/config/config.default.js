@@ -13,8 +13,8 @@ module.exports = appInfo => {
     client: {
       url: 'mongodb://47.94.172.19:27017/RunAsOne',
       options: {
-        user: 'pyw',
-        pass: 'pyw123',
+        user: 'xxx',
+        pass: 'xxxx',
       },
     },
   };
